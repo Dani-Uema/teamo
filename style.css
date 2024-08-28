@@ -1,0 +1,35 @@
+body
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px;
+    background-color: #f0f0f0;
+    flex-direction: column;
+}
+.video_container
+{
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    width: 50%;
+    max-width: 600px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0,0, 0, 0.1);
+}
+video
+{
+    width: 100%;
+    height: auto;
+    border-radius: 15px; 
+}
+@media screen and (max-width: 768px){
+    .video_container{
+        width: 100%;
+        flex-direction: column;
+    }
+    
+}
