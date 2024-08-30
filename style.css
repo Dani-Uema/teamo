@@ -1,35 +1,127 @@
-body
-{
+body {
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    min-height: 100vh;
+    flex-direction: column;
+    background-color: #000334;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.titulo {
+    font-size: 2.5em;
+    color: black;
+    margin: 0;
+}
+
+.painel {
+    margin-top:5px;
+    width: 100%;
+    max-width: 600px;
+    background-color: #000334;
+    border-radius: 15px;
+
+}
+
+.video_container {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
-    margin: 0;
-    padding: 20px;
-    background-color: #f0f0f0;
-    flex-direction: column;
-}
-.video_container
-{
-    display: flex;
-    justify-content: center;
-    align-items:center;
-    width: 50%;
+    width: 100%;
     max-width: 600px;
     border-radius: 10px;
     overflow: hidden;
-    box-shadow: 0 4px 8px rgba(0,0, 0, 0.1);
+    box-shadow: 5 3px 7px 1px rgba(0, 0, 0, 0.493);
+    background-color: #000000;
 }
-video
-{
+
+video {
     width: 100%;
     height: auto;
-    border-radius: 15px; 
+    border-radius: 10px;
 }
-@media screen and (max-width: 768px){
-    .video_container{
+
+.message {
+    background-color: rgba(255, 251, 251, 0.674);;
+    color: rgb(27, 0, 77);
+    text-align: center;
+    padding: 2px 0; 
+    font-size: 1.3em;
+    border-radius: 10px;
+    gap: 2px;
+    margin: 0;
+}
+
+.tempo {
+    width: 100%;
+    max-width: 600px;
+    background-color: rgba(255, 251, 251, 0.674);
+    padding: 10px 5px; 
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 1.2em;
+    border-radius: 10px;
+    color: rgb(27, 0, 77);
+    font-weight: bold;
+    text-align: center;
+    box-sizing: border-box;
+    position: relative;
+    
+}
+.tempo-container
+{
+    position: relative;
+    margin-bottom: 10px;
+    width: 100%;
+    max-width: 600px;
+    padding-top: 30px;
+}
+
+.titulocont {
+    position: absolute; 
+    top: 10px; 
+    left: 5px; 
+    font-size: 1.2em;
+    color: rgba(255, 255, 255, 0.81);
+    width: auto;
+    padding: 0;
+    transform: translateY(-50%);
+    z-index: 2;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bolder;
+    
+}
+
+@media screen and (max-width: 768px) {
+    .video_container {
         width: 100%;
         flex-direction: column;
     }
-    
+
+    .tempo-container{
+        margin-bottom: 0px;
+        padding-top: 5px;
+        padding-bottom: 15px;
+    }
+
+    .tempo {
+        top: 15px;
+        width: 100%;
+        margin-left: 0;
+    }
+
+    .titulocont {
+        font-size: 1.1em;
+        top: 8px;
+        left: 10px;
+        padding: 0;
+        font-family: 'Times New Roman', Times, serif;
+        font-weight: bolder;
+        color:rgba(255, 255, 255, 0.816);
+    }
+
+    .message {
+        font-size: 1.2em;
+    }
 }
