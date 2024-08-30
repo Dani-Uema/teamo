@@ -5,74 +5,93 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <title>surpresa!</title>
-    <link rel="stylesheet" href="./style.css" media="all">
+    <link rel="stylesheet" href="estilos/style.css" media="all">
 </head>
 <style>
-    body
-    {
-        margin: 0;
-        padding: 20px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        min-height: 100vh;
-        flex-direction: column;
-        background-color: #ffcccb;
-        font-family: 'Times New Roman', Times, serif;
-    }
-    .painel
-    {
-        width: 90%;
-        max-width: 600px;
-        background-color: rgba(255, 255, 255, 0.8);
-        border-radius: 15px;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    }
+
     header {
         text-align: center;
         width: 100%;
         padding: 20px;
+        flex-direction: column;
         background-color: #ffcccb; 
-    }
-    .titulo {
-        font-size: 2.5em;
-        color: black;
-        margin: 0;
-    }
-    .message
-    {
-        background-color: #d8b4b4;
-        color: #000;
-        text-align: center;
-        padding: 10px 0;
-        font-size: 1.5em;
-        border-radius: 10px;
     }
     h1
     {
-        font-size: 3em;
-        margin: 0;
+        font-size: 1.3em;
+        margin-top:0; 
+        margin-bottom: 10px;
     }
-    p
+    
+    .p1
     {
-        font-size: 1.2em;
-        margin-top: 10px;
+        font-size: 1.0em;
+        margin: 0; 
+        padding: 0px 10px;
     }
+    .message span {
+        margin-bottom: 2px; 
+    }
+    
+
+
     
 </style>
 
 <body>
-    <header>
-        <h1 class="titulo"></h1>
-    </header>
-    <div class="painel"> 
-        <video autoplay muted loop controls playsinline>
-            <source src="video.mp4" type="video/mp4">
-        </video>
-       <div class="message">
-        <h1> Eu te amo!</h1>
-        <p>Você é a luz da minha vida e sempre será especial para mim.</p>
-       </div>
+    <div class="container" >
+        <div class ="tempo-container">
+            <div class ="titulocont">Juntos há:</div>
+            <div class="tempo" id="tempoDeNamoro"></div>
+        </div>
+
+        <div class="painel"> 
+            <video autoplay muted loop controls>
+                <source src="video.mp4" type="video/mp4">
+            </video>
+           <div class="message">
+            <span style='font-size:35px;'>&#9829;</span>
+         
+            <div class ="p1"><p>Amor, eu torço para que esse contador nunca deixe de aumentar
+                e continue sempre marcando cada segundo de amor que vivemos juntos. Obrigada por tudo e por tanto!</p></div>
+                <h1>Eu te amo.</h1>
+           </div>
+        </div>
     </div>
+    <script>
+        function atualizarTempoDeNamoro() {
+            const dataInicio = new Date('2024-02-23T10:00:00');
+            const agora = new Date();
+
+            let diferenca = agora - dataInicio;
+    
+            const dataInicioObj = new Date(dataInicio);
+            const dataAtualObj = new Date(agora);
+    
+            let anos = dataAtualObj.getFullYear() - dataInicioObj.getFullYear();
+            let meses = dataAtualObj.getMonth() - dataInicioObj.getMonth();
+            let dias = dataAtualObj.getDate() - dataInicioObj.getDate();
+    
+            if (meses < 0) {
+                anos--;
+                meses += 12;
+            }
+            if (dias < 0) {
+                meses--;
+                dias += new Date(dataAtualObj.getFullYear(), dataAtualObj.getMonth(), 0).getDate();
+            }
+    
+            const horas = Math.floor((diferenca % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutos = Math.floor((diferenca % (1000 * 60 * 60)) / (1000 * 60));
+            const segundos = Math.floor((diferenca % (1000 * 60)) / 1000);
+    
+            document.getElementById('tempoDeNamoro').innerHTML = 
+                `${anos} anos | ${meses} meses | ${dias} dias | ${horas} horas | ${minutos} minutos | ${segundos} segundos`;
+        }
+    
+        setInterval(atualizarTempoDeNamoro, 1000);
+        atualizarTempoDeNamoro();
+    </script>
+    
 </body>
 </html>
